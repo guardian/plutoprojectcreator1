@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B3936871AE51AF200DF4B9C /* StageOneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3936861AE51AF200DF4B9C /* StageOneController.m */; };
+		9B39368B1AE51B0200DF4B9C /* StageTwoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3936891AE51B0200DF4B9C /* StageTwoController.m */; };
+		9B3936901AE51B1200DF4B9C /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B39368E1AE51B1200DF4B9C /* PrefsController.m */; };
 		9BB4C5A71AE515D400BB091C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4C5A61AE515D400BB091C /* AppDelegate.m */; };
 		9BB4C5A91AE515D400BB091C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4C5A81AE515D400BB091C /* main.m */; };
 		9BB4C5AB1AE515D400BB091C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BB4C5AA1AE515D400BB091C /* Images.xcassets */; };
 		9BB4C5AE1AE515D400BB091C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB4C5AC1AE515D400BB091C /* MainMenu.xib */; };
 		9BB4C5BA1AE515D400BB091C /* PlutoProjectCreatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4C5B91AE515D400BB091C /* PlutoProjectCreatorTests.m */; };
+		9BF7414F1AE5163F009157CB /* BrowserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7414E1AE5163F009157CB /* BrowserDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +29,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B3936851AE51AF200DF4B9C /* StageOneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageOneController.h; sourceTree = "<group>"; };
+		9B3936861AE51AF200DF4B9C /* StageOneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageOneController.m; sourceTree = "<group>"; };
+		9B3936881AE51B0200DF4B9C /* StageTwoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageTwoController.h; sourceTree = "<group>"; };
+		9B3936891AE51B0200DF4B9C /* StageTwoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageTwoController.m; sourceTree = "<group>"; };
+		9B39368D1AE51B1200DF4B9C /* PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsController.h; sourceTree = "<group>"; };
+		9B39368E1AE51B1200DF4B9C /* PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsController.m; sourceTree = "<group>"; };
 		9BB4C5A01AE515D400BB091C /* PlutoProjectCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlutoProjectCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB4C5A41AE515D400BB091C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BB4C5A51AE515D400BB091C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -35,6 +45,8 @@
 		9BB4C5B31AE515D400BB091C /* PlutoProjectCreatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlutoProjectCreatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB4C5B81AE515D400BB091C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BB4C5B91AE515D400BB091C /* PlutoProjectCreatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlutoProjectCreatorTests.m; sourceTree = "<group>"; };
+		9BF7414D1AE5163F009157CB /* BrowserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserDelegate.h; sourceTree = "<group>"; };
+		9BF7414E1AE5163F009157CB /* BrowserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +67,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B3936921AE51B1900DF4B9C /* MainUI */ = {
+			isa = PBXGroup;
+			children = (
+				9BF7414D1AE5163F009157CB /* BrowserDelegate.h */,
+				9BF7414E1AE5163F009157CB /* BrowserDelegate.m */,
+				9B3936851AE51AF200DF4B9C /* StageOneController.h */,
+				9B3936861AE51AF200DF4B9C /* StageOneController.m */,
+				9B3936881AE51B0200DF4B9C /* StageTwoController.h */,
+				9B3936891AE51B0200DF4B9C /* StageTwoController.m */,
+			);
+			name = MainUI;
+			sourceTree = "<group>";
+		};
+		9B3936931AE51B4200DF4B9C /* PrefsUI */ = {
+			isa = PBXGroup;
+			children = (
+				9B39368D1AE51B1200DF4B9C /* PrefsController.h */,
+				9B39368E1AE51B1200DF4B9C /* PrefsController.m */,
+			);
+			name = PrefsUI;
+			sourceTree = "<group>";
+		};
 		9BB4C5971AE515D400BB091C = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +110,8 @@
 		9BB4C5A21AE515D400BB091C /* PlutoProjectCreator */ = {
 			isa = PBXGroup;
 			children = (
+				9B3936931AE51B4200DF4B9C /* PrefsUI */,
+				9B3936921AE51B1900DF4B9C /* MainUI */,
 				9BB4C5A51AE515D400BB091C /* AppDelegate.h */,
 				9BB4C5A61AE515D400BB091C /* AppDelegate.m */,
 				9BB4C5AA1AE515D400BB091C /* Images.xcassets */,
@@ -211,7 +247,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BB4C5A91AE515D400BB091C /* main.m in Sources */,
+				9B3936871AE51AF200DF4B9C /* StageOneController.m in Sources */,
+				9B3936901AE51B1200DF4B9C /* PrefsController.m in Sources */,
 				9BB4C5A71AE515D400BB091C /* AppDelegate.m in Sources */,
+				9BF7414F1AE5163F009157CB /* BrowserDelegate.m in Sources */,
+				9B39368B1AE51B0200DF4B9C /* StageTwoController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +438,7 @@
 				9BB4C5BF1AE515D400BB091C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9BB4C5C01AE515D400BB091C /* Build configuration list for PBXNativeTarget "PlutoProjectCreatorTests" */ = {
 			isa = XCConfigurationList;
@@ -406,6 +447,7 @@
 				9BB4C5C21AE515D400BB091C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
