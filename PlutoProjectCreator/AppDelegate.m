@@ -11,10 +11,14 @@
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
+@property (weak) IBOutlet NSPanel *prefsPanel;
+
 @end
 
 @implementation AppDelegate
-
+- (IBAction) showPrefs:(id)sender {
+    
+}
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
 }
