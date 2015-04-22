@@ -10,11 +10,17 @@
 		9B3936871AE51AF200DF4B9C /* StageOneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3936861AE51AF200DF4B9C /* StageOneController.m */; };
 		9B39368B1AE51B0200DF4B9C /* StageTwoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3936891AE51B0200DF4B9C /* StageTwoController.m */; };
 		9B3936901AE51B1200DF4B9C /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B39368E1AE51B1200DF4B9C /* PrefsController.m */; };
+		9B4501871AE797FF00AB5ABD /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4501861AE797FF00AB5ABD /* libcurl.dylib */; };
+		9B45018A1AE798A800AB5ABD /* VSGlobalMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4501891AE798A800AB5ABD /* VSGlobalMetadata.m */; };
 		9BB4C5A71AE515D400BB091C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4C5A61AE515D400BB091C /* AppDelegate.m */; };
 		9BB4C5A91AE515D400BB091C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4C5A81AE515D400BB091C /* main.m */; };
 		9BB4C5AB1AE515D400BB091C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BB4C5AA1AE515D400BB091C /* Images.xcassets */; };
 		9BB4C5AE1AE515D400BB091C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB4C5AC1AE515D400BB091C /* MainMenu.xib */; };
 		9BB4C5BA1AE515D400BB091C /* PlutoProjectCreatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4C5B91AE515D400BB091C /* PlutoProjectCreatorTests.m */; };
+		9BE6E1681AE53A2B00683918 /* VidispineBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6E1611AE53A2B00683918 /* VidispineBase.m */; };
+		9BE6E1691AE53A2B00683918 /* VSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6E1631AE53A2B00683918 /* VSItem.m */; };
+		9BE6E16A1AE53A2B00683918 /* VSSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6E1651AE53A2B00683918 /* VSSearch.m */; };
+		9BE6E16B1AE53A2B00683918 /* VSSearchXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6E1671AE53A2B00683918 /* VSSearchXMLParser.m */; };
 		9BF7414F1AE5163F009157CB /* BrowserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7414E1AE5163F009157CB /* BrowserDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +41,9 @@
 		9B3936891AE51B0200DF4B9C /* StageTwoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageTwoController.m; sourceTree = "<group>"; };
 		9B39368D1AE51B1200DF4B9C /* PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsController.h; sourceTree = "<group>"; };
 		9B39368E1AE51B1200DF4B9C /* PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsController.m; sourceTree = "<group>"; };
+		9B4501861AE797FF00AB5ABD /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
+		9B4501881AE798A800AB5ABD /* VSGlobalMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSGlobalMetadata.h; sourceTree = "<group>"; };
+		9B4501891AE798A800AB5ABD /* VSGlobalMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSGlobalMetadata.m; sourceTree = "<group>"; };
 		9BB4C5A01AE515D400BB091C /* PlutoProjectCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlutoProjectCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB4C5A41AE515D400BB091C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BB4C5A51AE515D400BB091C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -45,6 +54,14 @@
 		9BB4C5B31AE515D400BB091C /* PlutoProjectCreatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlutoProjectCreatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB4C5B81AE515D400BB091C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BB4C5B91AE515D400BB091C /* PlutoProjectCreatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlutoProjectCreatorTests.m; sourceTree = "<group>"; };
+		9BE6E1601AE53A2B00683918 /* VidispineBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VidispineBase.h; sourceTree = "<group>"; };
+		9BE6E1611AE53A2B00683918 /* VidispineBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VidispineBase.m; sourceTree = "<group>"; };
+		9BE6E1621AE53A2B00683918 /* VSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSItem.h; sourceTree = "<group>"; };
+		9BE6E1631AE53A2B00683918 /* VSItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSItem.m; sourceTree = "<group>"; };
+		9BE6E1641AE53A2B00683918 /* VSSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSSearch.h; sourceTree = "<group>"; };
+		9BE6E1651AE53A2B00683918 /* VSSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSSearch.m; sourceTree = "<group>"; };
+		9BE6E1661AE53A2B00683918 /* VSSearchXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSSearchXMLParser.h; sourceTree = "<group>"; };
+		9BE6E1671AE53A2B00683918 /* VSSearchXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSSearchXMLParser.m; sourceTree = "<group>"; };
 		9BF7414D1AE5163F009157CB /* BrowserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserDelegate.h; sourceTree = "<group>"; };
 		9BF7414E1AE5163F009157CB /* BrowserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B4501871AE797FF00AB5ABD /* libcurl.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +110,7 @@
 		9BB4C5971AE515D400BB091C = {
 			isa = PBXGroup;
 			children = (
+				9B4501861AE797FF00AB5ABD /* libcurl.dylib */,
 				9BB4C5A21AE515D400BB091C /* PlutoProjectCreator */,
 				9BB4C5B61AE515D400BB091C /* PlutoProjectCreatorTests */,
 				9BB4C5A11AE515D400BB091C /* Products */,
@@ -110,6 +129,7 @@
 		9BB4C5A21AE515D400BB091C /* PlutoProjectCreator */ = {
 			isa = PBXGroup;
 			children = (
+				9BE6E15F1AE53A2B00683918 /* Vidispine */,
 				9B3936931AE51B4200DF4B9C /* PrefsUI */,
 				9B3936921AE51B1900DF4B9C /* MainUI */,
 				9BB4C5A51AE515D400BB091C /* AppDelegate.h */,
@@ -145,6 +165,23 @@
 				9BB4C5B81AE515D400BB091C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9BE6E15F1AE53A2B00683918 /* Vidispine */ = {
+			isa = PBXGroup;
+			children = (
+				9BE6E1601AE53A2B00683918 /* VidispineBase.h */,
+				9BE6E1611AE53A2B00683918 /* VidispineBase.m */,
+				9BE6E1621AE53A2B00683918 /* VSItem.h */,
+				9BE6E1631AE53A2B00683918 /* VSItem.m */,
+				9BE6E1641AE53A2B00683918 /* VSSearch.h */,
+				9BE6E1651AE53A2B00683918 /* VSSearch.m */,
+				9B4501881AE798A800AB5ABD /* VSGlobalMetadata.h */,
+				9B4501891AE798A800AB5ABD /* VSGlobalMetadata.m */,
+				9BE6E1661AE53A2B00683918 /* VSSearchXMLParser.h */,
+				9BE6E1671AE53A2B00683918 /* VSSearchXMLParser.m */,
+			);
+			path = Vidispine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,11 +284,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BB4C5A91AE515D400BB091C /* main.m in Sources */,
+				9BE6E1681AE53A2B00683918 /* VidispineBase.m in Sources */,
 				9B3936871AE51AF200DF4B9C /* StageOneController.m in Sources */,
+				9BE6E1691AE53A2B00683918 /* VSItem.m in Sources */,
 				9B3936901AE51B1200DF4B9C /* PrefsController.m in Sources */,
+				9BE6E16B1AE53A2B00683918 /* VSSearchXMLParser.m in Sources */,
 				9BB4C5A71AE515D400BB091C /* AppDelegate.m in Sources */,
 				9BF7414F1AE5163F009157CB /* BrowserDelegate.m in Sources */,
 				9B39368B1AE51B0200DF4B9C /* StageTwoController.m in Sources */,
+				9BE6E16A1AE53A2B00683918 /* VSSearch.m in Sources */,
+				9B45018A1AE798A800AB5ABD /* VSGlobalMetadata.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +410,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = PlutoProjectCreator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -379,6 +422,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = PlutoProjectCreator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

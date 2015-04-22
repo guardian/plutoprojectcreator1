@@ -14,5 +14,8 @@
 #define COL_PROJECTNAME     2
 
 @interface BrowserDelegate : NSObject <NSBrowserDelegate>
+//- (bool) setWorkingGroupArray:(NSArray *)a;
+@property (atomic,retain) NSArray *workingGroups;
 
+- (NSArray *)getCommissionList:(NSDictionary *)workingGroup;
 @end

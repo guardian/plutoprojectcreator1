@@ -9,5 +9,5 @@
 #import <Cocoa/Cocoa.h>
 
 @interface PrefsController : NSWindowController
-
+@property (weak) IBOutlet NSPanel *prefsPanel;
 @end

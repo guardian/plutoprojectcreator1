@@ -7,6 +7,7 @@
 //
 
 #import "BrowserDelegate.h"
+#import "VSSearch.h"
 
 @implementation BrowserDelegate
 NSImage *commissionIcon,*projectIcon;
@@ -50,7 +51,11 @@ numberOfRowsInColumn:(NSInteger)column
 {
     switch(column){
         case COL_WORKINGGROUP:
-            return 12;
+            if(!_workingGroups){
+                NSLog(@"WAARNING: browser:numberOfRowsInColumn - no working groups set");
+                return 0;
+            }
+            return [_workingGroups count];
             break;
         case COL_COMMISSION:
             return 3;
@@ -90,17 +95,24 @@ willDisplayCell:(id)cell
          column:(NSInteger)column
 {
     NSString *str = [NSString stringWithFormat:@"test value for row %ld, column %ld",(long)row,(long)column];
-    [cell setStringValue:str];
+    NSDictionary *groupInfo = nil;
+    NSArray *list;
     switch(column){
         case COL_WORKINGGROUP:
+            groupInfo = [_workingGroups objectAtIndex:row];
+            [cell setStringValue:[groupInfo valueForKey:@"gnm_subgroup_displayname"]];
             break;
         case COL_COMMISSION:
+            list = [self getCommissionList:[_workingGroups objectAtIndex:0]];
             [cell setImage:commissionIcon];
+            [cell setStringValue:str];
             break;
         case COL_PROJECTNAME:
             [cell setImage:projectIcon];
+            [cell setStringValue:str];
             break;
         default:
+            [cell setStringValue:@"invalid column"];
             break;
     }
     
@@ -117,5 +129,35 @@ shouldShowCellExpansionForRow:(NSInteger)row
          column:(NSInteger)column
 {
     return YES;
+}
+
+- (NSArray *)getCommissionList:(NSDictionary *)workingGroup
+{
+    NSString *uuid = [workingGroup valueForKey:@"uuid"];
+    
+    NSUserDefaults *d = [NSUserDefaults standardUserDefaults];
+    
+    VidispineBase *conn = [[VidispineBase alloc] init:[d valueForKey:@"vshost"] port:[d valueForKey:@"vsport"] username:[d valueForKey:@"vsuser"] password:[d valueForKey:@"vspass"]];
+    
+    VSSearch *search = [[VSSearch alloc] initWithConnection:conn];
+    
+    [search addSearchTerm:@"Commission" forField:@"gnm_type"];
+    [search addSearchTerm:uuid forField:@"gnm_commission_workinggroup"];
+    
+    NSXMLDocument *returnedXML = [search executeWithoutDelegation];
+    
+    NSLog(@"%@",returnedXML);
+    
+    NSMutableArray *r = [NSMutableArray array];
+    for (NSXMLElement *n in [returnedXML nodesForXPath:@"//entry/collection" error:nil]){
+        NSLog(@"%@",n);
+        NSMutableDictionary *d = [NSMutableDictionary dictionary];
+        NSString *itemID = [[[n nodesForXPath:@"id" error:nil] objectAtIndex:0] stringValue];
+        NSString *itemName = [[[n nodesForXPath:@"name" error:nil] objectAtIndex:0] stringValue];
+        [d setObject:itemID forKey:@"id"];
+        [d setObject:itemName forKey:@"name"];
+        [r addObject:d];
+    }
+    return r;
 }
 @end

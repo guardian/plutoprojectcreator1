@@ -13,6 +13,10 @@
 @end
 
 @implementation PrefsController
+- (IBAction)closeClicked:(id)sender {
+    [NSApp endSheet:_prefsPanel];
+    [_prefsPanel orderOut:sender];
+}
 
 - (void)windowDidLoad {
     [super windowDidLoad];

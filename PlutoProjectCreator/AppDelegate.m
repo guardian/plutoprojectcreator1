@@ -17,10 +17,25 @@
 
 @implementation AppDelegate
 - (IBAction) showPrefs:(id)sender {
+    [NSApp beginSheet:_prefsPanel
+        modalForWindow:_window
+        modalDelegate:self
+        didEndSelector:@selector(prefsDidEnd:returnCode:contextInfo:)
+        contextInfo:nil
+     ];
     
 }
+
+- (void)prefsDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+    /*[NSApp endSheet:sheet];
+    [sheet orderOut:sheet];*/
+    NSLog(@"prefs panel closed");
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

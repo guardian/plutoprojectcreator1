@@ -20,6 +20,16 @@
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="0i6-wU-8u0" customClass="PrefsController">
+            <connections>
+                <outlet property="prefsPanel" destination="L9p-TI-lb3" id="4zE-3q-qZH"/>
+            </connections>
+        </customObject>
+        <customObject id="T4b-Z2-zmw" customClass="StageOneController">
+            <connections>
+                <outlet property="browserDelegate" destination="RkD-fR-KyT" id="slN-n2-XIc"/>
+            </connections>
+        </customObject>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
                 <menuItem title="PlutoProjectCreator" id="1Xt-HY-uBw">
@@ -705,6 +715,9 @@
                     </textField>
                 </subviews>
             </view>
+            <connections>
+                <outlet property="delegate" destination="T4b-Z2-zmw" id="9sa-W8-nOv"/>
+            </connections>
             <point key="canvasLocation" x="312.5" y="342"/>
         </window>
         <window title="Create Project" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="6pa-hW-Dhp">
@@ -977,8 +990,11 @@
                         <rect key="frame" x="330" y="19" width="72" height="19"/>
                         <buttonCell key="cell" type="roundRect" title="Close" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="n4m-Ms-918">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="controlContent"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="closeClicked:" target="0i6-wU-8u0" id="9Fv-iQ-r5k"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
