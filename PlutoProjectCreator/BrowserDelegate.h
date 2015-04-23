@@ -16,6 +16,7 @@
 @interface BrowserDelegate : NSObject <NSBrowserDelegate>
 //- (bool) setWorkingGroupArray:(NSArray *)a;
 @property (atomic,retain) NSArray *workingGroups;
-
+@property (atomic,retain) NSMutableDictionary *commissionsByGroup;
+@property (atomic,retain) NSMutableDictionary *projectsByCommission;
 - (NSArray *)getCommissionList:(NSDictionary *)workingGroup;
 @end
