@@ -7,7 +7,20 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#ifndef __stage_one_controller
+#define __stage_one_controller
+
+#import "BrowserDelegate.h"
+#import "StageTwoController.h"
 
 @interface StageOneController : NSWindowController
+- (IBAction)nextClicked:(id)sender;
+
+@property (weak) IBOutlet BrowserDelegate *browserDelegate;
+@property (weak) IBOutlet NSBrowser *browserWidget;
+@property (weak) IBOutlet NSWindow *window;
+@property (weak) IBOutlet StageTwoController *stageTwoController;
 
 @end
+
+#endif

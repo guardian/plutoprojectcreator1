@@ -35,7 +35,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
-    
+        NSUserDefaults *d = [NSUserDefaults standardUserDefaults];
+        _vsGlobalMetadata = [[VSGlobalMetadata alloc] init:[d valueForKey:@"vshost"] port:[d valueForKey:@"vsport"] username:[d valueForKey:@"vsuser"] password:[d valueForKey:@"vspass"]];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

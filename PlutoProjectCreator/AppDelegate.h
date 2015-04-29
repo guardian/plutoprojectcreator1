@@ -8,8 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
+#ifndef __app_delegate_h
+#define __app_delegate_h
+#import "VSGlobalMetadata.h"
+
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-
+@property (retain,atomic) VSGlobalMetadata *vsGlobalMetadata;
 @end
-
+#endif

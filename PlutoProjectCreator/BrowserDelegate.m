@@ -57,6 +57,23 @@ selectCellWithString:(NSString *)title
     return TRUE;
 }
 
+- (NSDictionary *)selectedWorkingGroup:(NSBrowser *)sender
+{
+    NSIndexPath *p = [sender selectionIndexPath];
+    NSUInteger i=[p indexAtPosition:COL_WORKINGGROUP];
+    return [_workingGroups objectAtIndex:i];
+}
+
+- (NSDictionary *)selectedCommission:(NSBrowser *)sender
+{
+    NSIndexPath *p = [sender selectionIndexPath];
+    NSUInteger i=[p indexAtPosition:COL_COMMISSION];
+    
+    NSArray *list = [self getCommissionList:[self selectedWorkingGroup:sender]];
+    //return [_commissionsByGroup]
+    return [list objectAtIndex:i];
+}
+
 - (NSInteger)browser:(NSBrowser *)sender
 numberOfRowsInColumn:(NSInteger)column
 {

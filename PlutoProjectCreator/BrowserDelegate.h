@@ -18,5 +18,8 @@
 @property (atomic,retain) NSArray *workingGroups;
 @property (atomic,retain) NSMutableDictionary *commissionsByGroup;
 @property (atomic,retain) NSMutableDictionary *projectsByCommission;
+
 - (NSArray *)getCommissionList:(NSDictionary *)workingGroup;
+- (NSDictionary *)selectedWorkingGroup:(NSBrowser *)sender;
+- (NSDictionary *)selectedCommission:(NSBrowser *)sender;
 @end

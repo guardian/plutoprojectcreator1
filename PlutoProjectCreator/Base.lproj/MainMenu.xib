@@ -28,6 +28,17 @@
         <customObject id="T4b-Z2-zmw" customClass="StageOneController">
             <connections>
                 <outlet property="browserDelegate" destination="RkD-fR-KyT" id="slN-n2-XIc"/>
+                <outlet property="browserWidget" destination="9DF-3K-j2B" id="ckI-ox-vza"/>
+                <outlet property="stageTwoController" destination="eRU-KU-xrj" id="7Yi-px-j4Q"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="rB0-rw-5pg"/>
+            </connections>
+        </customObject>
+        <customObject id="eRU-KU-xrj" customClass="StageTwoController">
+            <connections>
+                <outlet property="stageOneBrowserDelegate" destination="RkD-fR-KyT" id="qPr-Qz-0vc"/>
+                <outlet property="stageOneController" destination="T4b-Z2-zmw" id="wga-Pz-DeH"/>
+                <outlet property="stageOneWindow" destination="QvC-M9-y7g" id="KML-Ww-Bbh"/>
+                <outlet property="window" destination="6pa-hW-Dhp" id="JeG-yu-aUY"/>
             </connections>
         </customObject>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
@@ -704,6 +715,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="nextClicked:" target="T4b-Z2-zmw" id="FeQ-Ji-0eq"/>
+                        </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vas-2q-aiT">
                         <rect key="frame" x="18" y="309" width="456" height="35"/>
@@ -753,14 +767,6 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obm-Jm-UxS">
-                        <rect key="frame" x="119" y="340" width="262" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="1bJ-iv-w5T">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ARp-52-Hmq">
                         <rect key="frame" x="119" y="313" width="262" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Kuo-Xm-X7g">
@@ -768,6 +774,9 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="eRU-KU-xrj" name="value" keyPath="commission.name" id="zs2-PM-qFx"/>
+                        </connections>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wW2-SU-Lo8">
                         <rect key="frame" x="622" y="13" width="81" height="32"/>
@@ -775,6 +784,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="nextClicked:" target="eRU-KU-xrj" id="nxa-DQ-Ipf"/>
+                        </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WVk-jA-cEy">
                         <rect key="frame" x="27" y="272" width="86" height="17"/>
@@ -805,6 +817,9 @@
                                 </items>
                             </menu>
                         </popUpButtonCell>
+                        <connections>
+                            <binding destination="eRU-KU-xrj" name="contentValues" keyPath="projectTypes" id="NIH-kl-Njk"/>
+                        </connections>
                     </popUpButton>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p7v-Rk-jw0">
                         <rect key="frame" x="117" y="242" width="267" height="26"/>
@@ -819,6 +834,9 @@
                                 </items>
                             </menu>
                         </popUpButtonCell>
+                        <connections>
+                            <binding destination="eRU-KU-xrj" name="contentValues" keyPath="projectSubTypes" id="mpw-kG-DEi"/>
+                        </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="smG-Oc-Wjt">
                         <rect key="frame" x="49" y="203" width="64" height="17"/>
@@ -835,6 +853,9 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="eRU-KU-xrj" name="value" keyPath="headline" id="qQF-cI-2Je"/>
+                        </connections>
                     </textField>
                     <box autoresizesSubviews="NO" horizontalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="8H8-yr-idS">
                         <rect key="frame" x="395" y="57" width="5" height="232"/>
@@ -865,6 +886,9 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="eRU-KU-xrj" name="value" keyPath="byline" id="8Cc-9f-LhE"/>
+                        </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nzT-94-p8c">
                         <rect key="frame" x="45" y="155" width="68" height="17"/>
@@ -881,6 +905,9 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="eRU-KU-xrj" name="value" keyPath="standfirst" id="Zm9-0i-lw3"/>
+                        </connections>
                     </textField>
                     <tokenField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="haX-6G-MDp">
                         <rect key="frame" x="471" y="178" width="226" height="77"/>
@@ -896,9 +923,30 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="prevClicked:" target="eRU-KU-xrj" id="ymt-OQ-OSX"/>
+                        </connections>
                     </button>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obm-Jm-UxS">
+                        <rect key="frame" x="119" y="340" width="262" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="1bJ-iv-w5T">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="eRU-KU-xrj" name="value" keyPath="workingGroup.gnm_subgroup_displayname" id="tnv-56-Hfb">
+                                <dictionary key="options">
+                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </textField>
                 </subviews>
             </view>
+            <connections>
+                <outlet property="delegate" destination="eRU-KU-xrj" id="kp6-7m-8Hf"/>
+            </connections>
             <point key="canvasLocation" x="417.5" y="794.5"/>
         </window>
         <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="L9p-TI-lb3" customClass="NSPanel">

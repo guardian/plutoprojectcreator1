@@ -7,11 +7,12 @@
 //
 
 #import "StageOneController.h"
+#import "StageTwoController.h"
 #import "VSGlobalMetadata.h"
 #import "BrowserDelegate.h"
 
 @interface StageOneController ()
-@property (weak) IBOutlet BrowserDelegate *browserDelegate;
+
 @end
 
 @implementation StageOneController
@@ -25,10 +26,7 @@
 
 - (void) awakeFromNib {
     NSLog(@"stageOnecontroller: awakeFromNib");
-    NSUserDefaults *d = [NSUserDefaults standardUserDefaults];
-    
-    VSGlobalMetadata *md = [[VSGlobalMetadata alloc] init:[d valueForKey:@"vshost"] port:[d valueForKey:@"vsport"] username:[d valueForKey:@"vsuser"] password:[d valueForKey:@"vspass"]];
-    
+
     NSArray *content = [md groupContent:@"WorkingGroup"];
     NSLog(@"%@",content);
     /*NSMutableArray *r = [NSMutableArray array];
@@ -45,4 +43,12 @@
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
+- (void) nextClicked:(id)sender
+{
+   [_stageTwoController setWorkingGroup:[_browserDelegate selectedWorkingGroup:_browserWidget]];
+    [_stageTwoController setCommission:[_browserDelegate selectedCommission:_browserWidget]];
+
+    [[self window] orderOut:sender];
+    [_stageTwoController showWindow:sender];
+}
 @end
