@@ -10,6 +10,7 @@
 #import "StageTwoController.h"
 #import "VSGlobalMetadata.h"
 #import "BrowserDelegate.h"
+#import "AppDelegate.h"
 
 @interface StageOneController ()
 
@@ -27,7 +28,7 @@
 - (void) awakeFromNib {
     NSLog(@"stageOnecontroller: awakeFromNib");
 
-    NSArray *content = [md groupContent:@"WorkingGroup"];
+    NSArray *content = [[_appDelegate vsGlobalMetadata] groupContent:@"WorkingGroup"];
     NSLog(@"%@",content);
     /*NSMutableArray *r = [NSMutableArray array];
     for (NSDictionary *entry in content){

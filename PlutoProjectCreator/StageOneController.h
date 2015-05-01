@@ -12,6 +12,7 @@
 
 #import "BrowserDelegate.h"
 #import "StageTwoController.h"
+#import "AppDelegate.h"
 
 @interface StageOneController : NSWindowController
 - (IBAction)nextClicked:(id)sender;
@@ -20,7 +21,7 @@
 @property (weak) IBOutlet NSBrowser *browserWidget;
 @property (weak) IBOutlet NSWindow *window;
 @property (weak) IBOutlet StageTwoController *stageTwoController;
-
+@property (weak) IBOutlet AppDelegate *appDelegate;
 @end
 
 #endif

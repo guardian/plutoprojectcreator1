@@ -26,6 +26,14 @@
     
 }
 
+- (AppDelegate *)init
+{
+    self=[super init];
+    NSUserDefaults *d = [NSUserDefaults standardUserDefaults];
+    _vsGlobalMetadata = [[VSGlobalMetadata alloc] init:[d valueForKey:@"vshost"] port:[d valueForKey:@"vsport"] username:[d valueForKey:@"vsuser"] password:[d valueForKey:@"vspass"]];
+    
+    return self;
+}
 - (void)prefsDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
     /*[NSApp endSheet:sheet];
@@ -35,8 +43,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
-        NSUserDefaults *d = [NSUserDefaults standardUserDefaults];
-        _vsGlobalMetadata = [[VSGlobalMetadata alloc] init:[d valueForKey:@"vshost"] port:[d valueForKey:@"vsport"] username:[d valueForKey:@"vsuser"] password:[d valueForKey:@"vspass"]];
+
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

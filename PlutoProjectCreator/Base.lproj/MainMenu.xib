@@ -27,6 +27,7 @@
         </customObject>
         <customObject id="T4b-Z2-zmw" customClass="StageOneController">
             <connections>
+                <outlet property="appDelegate" destination="Voe-Tx-rLC" id="j22-J1-wUi"/>
                 <outlet property="browserDelegate" destination="RkD-fR-KyT" id="slN-n2-XIc"/>
                 <outlet property="browserWidget" destination="9DF-3K-j2B" id="ckI-ox-vza"/>
                 <outlet property="stageTwoController" destination="eRU-KU-xrj" id="7Yi-px-j4Q"/>
@@ -35,6 +36,7 @@
         </customObject>
         <customObject id="eRU-KU-xrj" customClass="StageTwoController">
             <connections>
+                <outlet property="appDelegate" destination="Voe-Tx-rLC" id="Xxo-LM-rHS"/>
                 <outlet property="stageOneBrowserDelegate" destination="RkD-fR-KyT" id="qPr-Qz-0vc"/>
                 <outlet property="stageOneController" destination="T4b-Z2-zmw" id="wga-Pz-DeH"/>
                 <outlet property="stageOneWindow" destination="QvC-M9-y7g" id="KML-Ww-Bbh"/>
@@ -818,7 +820,12 @@
                             </menu>
                         </popUpButtonCell>
                         <connections>
-                            <binding destination="eRU-KU-xrj" name="contentValues" keyPath="projectTypes" id="NIH-kl-Njk"/>
+                            <binding destination="eRU-KU-xrj" name="content" keyPath="projectTypes" id="qvw-3s-Mfl">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">SubgroupValueTransformer</string>
+                                </dictionary>
+                            </binding>
+                            <binding destination="eRU-KU-xrj" name="selectedObject" keyPath="selectedProjectType" previousBinding="qvw-3s-Mfl" id="4wE-ct-nap"/>
                         </connections>
                     </popUpButton>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p7v-Rk-jw0">
@@ -835,7 +842,13 @@
                             </menu>
                         </popUpButtonCell>
                         <connections>
-                            <binding destination="eRU-KU-xrj" name="contentValues" keyPath="projectSubTypes" id="mpw-kG-DEi"/>
+                            <binding destination="eRU-KU-xrj" name="content" keyPath="projectSubTypes" id="gWz-a7-Ziy">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">SubgroupValueTransformer</string>
+                                </dictionary>
+                            </binding>
+                            <binding destination="eRU-KU-xrj" name="contentObjects" keyPath="projectSubTypes" previousBinding="gWz-a7-Ziy" id="8dC-AW-dei"/>
+                            <binding destination="eRU-KU-xrj" name="selectedObject" keyPath="selectedProjectSubType" previousBinding="8dC-AW-dei" id="9Bg-Km-Re0"/>
                         </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="smG-Oc-Wjt">
