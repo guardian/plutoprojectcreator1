@@ -43,6 +43,7 @@
                 <outlet property="window" destination="6pa-hW-Dhp" id="JeG-yu-aUY"/>
             </connections>
         </customObject>
+        <customObject id="sBE-zE-Yhe" customClass="R2TagTokenDelegate"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
                 <menuItem title="PlutoProjectCreator" id="1Xt-HY-uBw">
@@ -842,12 +843,12 @@
                             </menu>
                         </popUpButtonCell>
                         <connections>
+                            <binding destination="eRU-KU-xrj" name="contentObjects" keyPath="projectSubTypes" previousBinding="gWz-a7-Ziy" id="8dC-AW-dei"/>
                             <binding destination="eRU-KU-xrj" name="content" keyPath="projectSubTypes" id="gWz-a7-Ziy">
                                 <dictionary key="options">
                                     <string key="NSValueTransformerName">SubgroupValueTransformer</string>
                                 </dictionary>
                             </binding>
-                            <binding destination="eRU-KU-xrj" name="contentObjects" keyPath="projectSubTypes" previousBinding="gWz-a7-Ziy" id="8dC-AW-dei"/>
                             <binding destination="eRU-KU-xrj" name="selectedObject" keyPath="selectedProjectSubType" previousBinding="8dC-AW-dei" id="9Bg-Km-Re0"/>
                         </connections>
                     </popUpButton>
@@ -929,6 +930,9 @@
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </tokenFieldCell>
+                        <connections>
+                            <outlet property="delegate" destination="sBE-zE-Yhe" id="hTU-71-H1S"/>
+                        </connections>
                     </tokenField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UhP-QF-CRl">
                         <rect key="frame" x="529" y="13" width="93" height="32"/>

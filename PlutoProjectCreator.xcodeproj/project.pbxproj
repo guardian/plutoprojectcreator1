@@ -22,6 +22,8 @@
 		9BE6E16A1AE53A2B00683918 /* VSSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6E1651AE53A2B00683918 /* VSSearch.m */; };
 		9BE6E16B1AE53A2B00683918 /* VSSearchXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6E1671AE53A2B00683918 /* VSSearchXMLParser.m */; };
 		9BE84B6C1AF112640010F069 /* SubgroupValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE84B6B1AF112640010F069 /* SubgroupValueTransformer.m */; };
+		9BF1CC431AF370B100DE1CCC /* R2TagTokenDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF1CC421AF370B100DE1CCC /* R2TagTokenDelegate.m */; };
+		9BF1CC471AF371DE00DE1CCC /* PlutoTags.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF1CC461AF371DE00DE1CCC /* PlutoTags.m */; };
 		9BF7414F1AE5163F009157CB /* BrowserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7414E1AE5163F009157CB /* BrowserDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +67,10 @@
 		9BE6E1671AE53A2B00683918 /* VSSearchXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSSearchXMLParser.m; sourceTree = "<group>"; };
 		9BE84B6A1AF112640010F069 /* SubgroupValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubgroupValueTransformer.h; sourceTree = "<group>"; };
 		9BE84B6B1AF112640010F069 /* SubgroupValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubgroupValueTransformer.m; sourceTree = "<group>"; };
+		9BF1CC411AF370B100DE1CCC /* R2TagTokenDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = R2TagTokenDelegate.h; sourceTree = "<group>"; };
+		9BF1CC421AF370B100DE1CCC /* R2TagTokenDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = R2TagTokenDelegate.m; sourceTree = "<group>"; };
+		9BF1CC451AF371DE00DE1CCC /* PlutoTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlutoTags.h; sourceTree = "<group>"; };
+		9BF1CC461AF371DE00DE1CCC /* PlutoTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlutoTags.m; sourceTree = "<group>"; };
 		9BF7414D1AE5163F009157CB /* BrowserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserDelegate.h; sourceTree = "<group>"; };
 		9BF7414E1AE5163F009157CB /* BrowserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +105,8 @@
 				9B3936861AE51AF200DF4B9C /* StageOneController.m */,
 				9B3936881AE51B0200DF4B9C /* StageTwoController.h */,
 				9B3936891AE51B0200DF4B9C /* StageTwoController.m */,
+				9BF1CC411AF370B100DE1CCC /* R2TagTokenDelegate.h */,
+				9BF1CC421AF370B100DE1CCC /* R2TagTokenDelegate.m */,
 			);
 			name = MainUI;
 			sourceTree = "<group>";
@@ -134,6 +142,7 @@
 		9BB4C5A21AE515D400BB091C /* PlutoProjectCreator */ = {
 			isa = PBXGroup;
 			children = (
+				9BF1CC441AF371D000DE1CCC /* Pluto */,
 				9BE6E15F1AE53A2B00683918 /* Vidispine */,
 				9B3936931AE51B4200DF4B9C /* PrefsUI */,
 				9B3936921AE51B1900DF4B9C /* MainUI */,
@@ -187,6 +196,15 @@
 				9BE6E1671AE53A2B00683918 /* VSSearchXMLParser.m */,
 			);
 			path = Vidispine;
+			sourceTree = "<group>";
+		};
+		9BF1CC441AF371D000DE1CCC /* Pluto */ = {
+			isa = PBXGroup;
+			children = (
+				9BF1CC451AF371DE00DE1CCC /* PlutoTags.h */,
+				9BF1CC461AF371DE00DE1CCC /* PlutoTags.m */,
+			);
+			name = Pluto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,8 +310,10 @@
 				9BB4C5A91AE515D400BB091C /* main.m in Sources */,
 				9BE6E1681AE53A2B00683918 /* VidispineBase.m in Sources */,
 				9B3936871AE51AF200DF4B9C /* StageOneController.m in Sources */,
+				9BF1CC431AF370B100DE1CCC /* R2TagTokenDelegate.m in Sources */,
 				9BE6E1691AE53A2B00683918 /* VSItem.m in Sources */,
 				9B3936901AE51B1200DF4B9C /* PrefsController.m in Sources */,
+				9BF1CC471AF371DE00DE1CCC /* PlutoTags.m in Sources */,
 				9BE6E16B1AE53A2B00683918 /* VSSearchXMLParser.m in Sources */,
 				9BB4C5A71AE515D400BB091C /* AppDelegate.m in Sources */,
 				9BF7414F1AE5163F009157CB /* BrowserDelegate.m in Sources */,

@@ -85,8 +85,8 @@
     }
  
     if(code!=0){
-        //NSDictionary *errorDict = [NSDictionary dictionaryWithObjectsAndKeys:errormsg, NSLocalizedFailureReasonErrorKey, @"Form is not valid",NSLocalizedDescriptionKey,nil];
-        NSDictionary *errorDict = [NSDictionary dictionaryWithObjectsAndKeys:errormsg, NSLocalizedRecoverySuggestionErrorKey,@"Please correct these problems",NSLocalizedDescriptionKey, nil];
+        NSDictionary *errorDict = [NSDictionary dictionaryWithObjectsAndKeys:errormsg, NSLocalizedRecoverySuggestionErrorKey, @"Please correct these problems",NSLocalizedDescriptionKey,
+            nil];
         
         if(e!=nil)
             *e = [NSError errorWithDomain:@"Create Project Form" code:code userInfo:errorDict];
@@ -102,16 +102,8 @@
     BOOL result = [self validateForm:&validationError];
     
     if(!result){
-        /*NSAlert *a = [NSAlert alertWithMessageText:@"Form is not complete"
-                                     defaultButton:nil alternateButton:nil otherButton:nil
-                         informativeTextWithFormat:[[validationError userInfo] valueForKey:NSLocalizedFailureReasonErrorKey]];
-        */
         NSAlert *a = [NSAlert alertWithError:validationError];
-        //NSLog(@"%@",[validationError localizedFailureReason]);
-        //NSLog(@"%@",[[validationError userInfo] objectForKey:NSLocalizedFailureReasonErrorKey]);
-        //[a setMessageText:@"Form is not complete"];
-        //[a setInformativeText:[[validationError userInfo] valueForKey:NSLocalizedFailureReasonErrorKey]];
-        //[a runModal];
+
         [a beginSheetModalForWindow:[self window] completionHandler:nil];
         return;
     }
