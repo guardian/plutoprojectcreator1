@@ -12,7 +12,7 @@
 
 - (NSArray *)possibleCompletions:(NSString *)partial error:(NSError **)e;
 {
-    NSLog(@"PlutoTags::possibleCompletions");
+    //NSLog(@"PlutoTags::possibleCompletions");
     
     if(_hostname==nil || [_hostname isEqualToString:@""]){
         if(e){
@@ -25,7 +25,7 @@
     NSString *urlstr = [NSString stringWithFormat:@"http://%@/gnm_tags/lookup/?stringval=%@",_hostname,[partial stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
     NSURL *targetURL = [NSURL URLWithString:urlstr];
-    NSLog(@"target URL is %@",targetURL);
+    //NSLog(@"target URL is %@",targetURL);
     
     //NSURLDownload *d = [[NSURLDownload alloc] initWithRequest:[NSURLRequest requestWithURL:targetURL] delegate:nil];
     NSURLResponse *r = nil;
@@ -39,11 +39,11 @@
     NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:NSDataBase64Encoding76CharacterLineLength]];
     [theRequest setValue:authValue forHTTPHeaderField:@"Authorization"];
     
-    NSLog(@"sending request...");
+    //NSLog(@"sending request...");
     NSData *returnedData = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:&r error: &downloadError];
     
-    NSLog(@"response was %@",r);
-    NSLog(@"data was %@",returnedData);
+    //NSLog(@"response was %@",r);
+    //NSLog(@"data was %@",returnedData);
     
     if(!d){
         NSLog(@"downloadError: %@",downloadError);
@@ -63,7 +63,7 @@
         *e = [parseError copy];
         return nil;
     }
-    NSLog(@"json deserialize returned %@ with value %@",[rtn class],rtn);
+    //NSLog(@"json deserialize returned %@ with value %@",[rtn class],rtn);
     //abort();
     return (NSArray *)rtn;
 }

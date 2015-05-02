@@ -31,7 +31,7 @@
 
 - (void)awakeFromNib
 {
-
+    [self setByline:NSFullUserName()];
 }
 
 - (StageTwoController *) init

@@ -13,6 +13,10 @@
 @interface R2TagTokenDelegate : NSObject <NSTokenFieldDelegate>
 
 @property (retain) PlutoTags *plutoTags;
+@property (retain) NSArray *knownTagData;
+@property (retain) NSMutableDictionary *tagLookup;
+
+@property (weak) IBOutlet NSTextField *tokenMessage;
 
 - (NSArray *)tokenField:(NSTokenField *)tokenField
 completionsForSubstring:(NSString *)substring
