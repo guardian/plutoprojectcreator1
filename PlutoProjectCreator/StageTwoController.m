@@ -9,6 +9,8 @@
 #import "StageTwoController.h"
 #import "StageOneController.h"
 #import "BrowserDelegate.h"
+#import "ProgressWindowController.h"
+#import "ProjectCreationWorker.h"
 
 @interface StageTwoController ()
 @property (weak) IBOutlet NSWindow *window;
@@ -113,6 +115,7 @@
     NSError *validationError = nil;
     
     BOOL result = [self validateForm:&validationError];
+    //BOOL result = TRUE;
     
     if(!result){
         NSAlert *a = [NSAlert alertWithError:validationError];
@@ -120,6 +123,24 @@
         [a beginSheetModalForWindow:[self window] completionHandler:nil];
         return;
     }
+    
+    ProgressWindowController *pw = (ProgressWindowController *)[[[self appDelegate] progressWindow] delegate];
+    [NSApp beginSheet:[[self appDelegate] progressWindow]
+       modalForWindow:[self window]
+        modalDelegate:self
+       didEndSelector:@selector(progressDidEnd:returnCode:contextInfo:)
+          contextInfo:nil
+     ];
+    
+    ProjectCreationWorker *worker = [[ProjectCreationWorker alloc] init];
+    [worker setProgressWindowController:pw];
+    [worker setFormDialog:self];
+    [worker start];
+}
+
+- (void)progressDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+    
 }
 
 - (void)prevClicked:(id)sender

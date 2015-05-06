@@ -13,6 +13,7 @@
 		9B4501871AE797FF00AB5ABD /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4501861AE797FF00AB5ABD /* libcurl.dylib */; };
 		9B45018A1AE798A800AB5ABD /* VSGlobalMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4501891AE798A800AB5ABD /* VSGlobalMetadata.m */; };
 		9BA3FAD51AFA758200BF595C /* ProgressWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA3FAD41AFA758200BF595C /* ProgressWindowController.m */; };
+		9BA3FAD81AFA8A9900BF595C /* ProjectCreationWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA3FAD71AFA8A9900BF595C /* ProjectCreationWorker.m */; };
 		9BB4C5A71AE515D400BB091C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4C5A61AE515D400BB091C /* AppDelegate.m */; };
 		9BB4C5A91AE515D400BB091C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4C5A81AE515D400BB091C /* main.m */; };
 		9BB4C5AB1AE515D400BB091C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BB4C5AA1AE515D400BB091C /* Images.xcassets */; };
@@ -50,6 +51,8 @@
 		9B4501891AE798A800AB5ABD /* VSGlobalMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSGlobalMetadata.m; sourceTree = "<group>"; };
 		9BA3FAD31AFA758200BF595C /* ProgressWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWindowController.h; sourceTree = "<group>"; };
 		9BA3FAD41AFA758200BF595C /* ProgressWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWindowController.m; sourceTree = "<group>"; };
+		9BA3FAD61AFA8A9900BF595C /* ProjectCreationWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectCreationWorker.h; sourceTree = "<group>"; };
+		9BA3FAD71AFA8A9900BF595C /* ProjectCreationWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectCreationWorker.m; sourceTree = "<group>"; };
 		9BB4C5A01AE515D400BB091C /* PlutoProjectCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlutoProjectCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB4C5A41AE515D400BB091C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BB4C5A51AE515D400BB091C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 			children = (
 				9BF1CC451AF371DE00DE1CCC /* PlutoTags.h */,
 				9BF1CC461AF371DE00DE1CCC /* PlutoTags.m */,
+				9BA3FAD61AFA8A9900BF595C /* ProjectCreationWorker.h */,
+				9BA3FAD71AFA8A9900BF595C /* ProjectCreationWorker.m */,
 			);
 			name = Pluto;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				9BE6E1691AE53A2B00683918 /* VSItem.m in Sources */,
 				9B3936901AE51B1200DF4B9C /* PrefsController.m in Sources */,
 				9BF1CC471AF371DE00DE1CCC /* PlutoTags.m in Sources */,
+				9BA3FAD81AFA8A9900BF595C /* ProjectCreationWorker.m in Sources */,
 				9BE6E16B1AE53A2B00683918 /* VSSearchXMLParser.m in Sources */,
 				9BB4C5A71AE515D400BB091C /* AppDelegate.m in Sources */,
 				9BF7414F1AE5163F009157CB /* BrowserDelegate.m in Sources */,

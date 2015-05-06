@@ -26,7 +26,7 @@
 }
 
 - (void) awakeFromNib {
-    NSLog(@"stageOnecontroller: awakeFromNib");
+    //NSLog(@"stageOnecontroller: awakeFromNib");
 
     NSArray *content = [[_appDelegate vsGlobalMetadata] groupContent:@"WorkingGroup"];
     NSLog(@"%@",content);
@@ -35,6 +35,19 @@
         [r addObject:[entry valueForKey:@"gnm_subgroup_displayname"]];
     }
     NSLog(@"%@",r);*/
+    [self setCanContinue:TRUE];
+    if(content==nil || [content count]==0){
+        NSAlert *a = [[NSAlert alloc] init];
+        [a setMessageText:@"Unable to get working groups list from Vidispine"];
+        [a setInformativeText:@"Check your server and login details are correct in Preferences or contact the system administrator"];
+        [a setIcon:[NSImage imageNamed:NSImageNameCaution]];
+        /*[a beginSheetModalForWindow:[self window] completionHandler:^(NSModalResponse returnCode){
+            exit(1);
+        }];
+         */
+        [self setCanContinue:FALSE];
+        [a runModal];
+    }
     [_browserDelegate setWorkingGroups:content];
 }
 - (void)windowDidLoad {

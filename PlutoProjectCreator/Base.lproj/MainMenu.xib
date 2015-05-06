@@ -50,7 +50,11 @@
                 <outlet property="tokenMessage" destination="tkW-mO-3Aw" id="9AB-eu-h2F"/>
             </connections>
         </customObject>
-        <customObject id="r88-62-4Gf" customClass="ProgressWindowController"/>
+        <customObject id="r88-62-4Gf" customClass="ProgressWindowController">
+            <connections>
+                <outlet property="window" destination="we3-vc-23h" id="3iP-95-U2C"/>
+            </connections>
+        </customObject>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
                 <menuItem title="PlutoProjectCreator" id="1Xt-HY-uBw">
@@ -382,6 +386,7 @@
                         </buttonCell>
                         <connections>
                             <action selector="nextClicked:" target="T4b-Z2-zmw" id="FeQ-Ji-0eq"/>
+                            <binding destination="T4b-Z2-zmw" name="enabled" keyPath="canContinue" id="9da-cR-uuZ"/>
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vas-2q-aiT">
@@ -737,7 +742,7 @@
             <point key="canvasLocation" x="-222" y="348.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="QG6-MS-q6d"/>
-        <window title="Progress Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="we3-vc-23h" customClass="NSPanel">
+        <window title="Progress Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="we3-vc-23h" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="139" y="81" width="526" height="111"/>
@@ -746,8 +751,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="526" height="111"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <progressIndicator fixedFrame="YES" maxValue="100" indeterminate="YES" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="JAW-YY-B2D">
+                    <progressIndicator fixedFrame="YES" maxValue="100" doubleValue="100" indeterminate="YES" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="JAW-YY-B2D">
                         <rect key="frame" x="20" y="72" width="486" height="20"/>
+                        <connections>
+                            <binding destination="r88-62-4Gf" name="animate" keyPath="canClose" id="7Nn-hm-Es2">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                            <binding destination="r88-62-4Gf" name="isIndeterminate" keyPath="canClose" previousBinding="7Nn-hm-Es2" id="Dzr-qJ-5c9">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
                     </progressIndicator>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WEz-Me-V5b">
                         <rect key="frame" x="18" y="48" width="490" height="17"/>
@@ -760,6 +777,21 @@
                             <binding destination="r88-62-4Gf" name="value" keyPath="labelText" id="ONr-Mo-ffk"/>
                         </connections>
                     </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Zh-WP-zJb">
+                        <rect key="frame" x="430" y="12" width="74" height="32"/>
+                        <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Xpf-gx-L4t">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="closeClicked:" target="r88-62-4Gf" id="psd-sT-u9r"/>
+                            <binding destination="r88-62-4Gf" name="hidden" keyPath="canClose" id="8FY-ar-CYS">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <connections>

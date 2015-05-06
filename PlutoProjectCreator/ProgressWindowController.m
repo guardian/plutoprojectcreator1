@@ -31,4 +31,19 @@
     [self setLabelText:[NSString stringWithFormat:@"(Step %@ of %@): %@",_currentStep,_totalSteps,_message]];
 }
 
+- (void)setFinished
+{
+    [self setCanClose:[NSNumber numberWithBool:TRUE]];
+}
+
+- (void)clearFinished
+{
+    [self setCanClose:[NSNumber numberWithBool:FALSE]];
+}
+
+- (void)closeClicked:(id)sender
+{
+    [NSApp endSheet:[self window]];
+    [[self window] orderOut:sender];
+}
 @end

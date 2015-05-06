@@ -22,6 +22,8 @@
 @property (weak) IBOutlet NSWindow *window;
 @property (weak) IBOutlet StageTwoController *stageTwoController;
 @property (weak) IBOutlet AppDelegate *appDelegate;
+@property BOOL canContinue;
+
 @end
 
 #endif

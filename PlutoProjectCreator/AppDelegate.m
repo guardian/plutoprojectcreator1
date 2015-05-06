@@ -9,11 +9,6 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
-
-@property (weak) IBOutlet NSWindow *window;
-@property (weak) IBOutlet NSPanel *prefsPanel;
-@property (weak) IBOutlet NSWindow *stageTwoWindow;
-@property (weak) IBOutlet NSPanel *progressWindow;
 @end
 
 @implementation AppDelegate
