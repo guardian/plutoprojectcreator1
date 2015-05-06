@@ -15,6 +15,7 @@
 @property (retain) PlutoTags *plutoTags;
 @property (retain) NSArray *knownTagData;
 @property (retain) NSMutableDictionary *tagLookup;
+@property (retain) NSMutableDictionary *selectedTagsLookup;
 
 @property (weak) IBOutlet NSTextField *tokenMessage;
 
@@ -26,4 +27,5 @@ completionsForSubstring:(NSString *)substring
 - (NSString *)tokenField:(NSTokenField *)tokenField
 displayStringForRepresentedObject:(id)representedObject;
 
+- (NSDictionary *)tagDataForName:(NSString *)name;
 @end

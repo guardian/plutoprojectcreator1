@@ -63,9 +63,10 @@ displayStringForRepresentedObject:(id)representedObject
     NSString *errorString=[NSString string];
     
     for(NSString *t in tokens){
-        if([_tagLookup objectForKey:t])
+        if([_tagLookup objectForKey:t]){
             [rtn addObject:t];
-        else {
+            [_selectedTagsLookup setValue:[_tagLookup objectForKey:t] forKey:t];
+        } else {
             errorString = [errorString stringByAppendingFormat:@"'%@' is not a valid R2 tag\n",t];
         }
     }

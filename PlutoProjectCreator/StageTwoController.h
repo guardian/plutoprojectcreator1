@@ -11,6 +11,7 @@
 #ifndef __stage_two_controller
 #define __stage_two_controller
 #import "AppDelegate.h"
+#import "R2TagTokenDelegate.h"
 
 @interface StageTwoController : NSWindowController
 - (IBAction)nextClicked:(id)sender;
@@ -26,9 +27,12 @@
 @property (nonatomic,retain) NSString *headline;
 @property (nonatomic,retain) NSString *byline;
 @property (nonatomic,retain) NSString *standfirst;
-@property (nonatomic,retain) NSString *tags;
+@property (nonatomic,retain) NSArray *tags;
+- (NSArray *)tagsData;
 
 @property (weak) IBOutlet AppDelegate *appDelegate;
+@property (weak) IBOutlet R2TagTokenDelegate *tagTokenDelegate;
+
 @end
 #endif
 

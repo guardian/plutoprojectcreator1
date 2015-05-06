@@ -15,5 +15,7 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (retain,atomic) VSGlobalMetadata *vsGlobalMetadata;
+- (IBAction)showProgress:(id)sender;
+- (IBAction)endProgress:(id)sender;
 @end
 #endif

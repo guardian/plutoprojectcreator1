@@ -12,7 +12,8 @@
 
 @property (weak) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSPanel *prefsPanel;
-
+@property (weak) IBOutlet NSWindow *stageTwoWindow;
+@property (weak) IBOutlet NSPanel *progressWindow;
 @end
 
 @implementation AppDelegate
@@ -23,6 +24,22 @@
         didEndSelector:@selector(prefsDidEnd:returnCode:contextInfo:)
         contextInfo:nil
      ];
+    
+}
+
+- (IBAction)showProgress:(id)sender
+{
+    [NSApp beginSheet:_progressWindow
+       modalForWindow:_stageTwoWindow
+        modalDelegate:self
+       didEndSelector:@selector(progresDidEnd:returnCode:contextInfo:)
+          contextInfo:nil
+     ];
+     
+}
+
+- (IBAction)endProgress:(id)sender
+{
     
 }
 

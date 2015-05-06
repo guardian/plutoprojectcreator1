@@ -12,6 +12,7 @@
 		9B3936901AE51B1200DF4B9C /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B39368E1AE51B1200DF4B9C /* PrefsController.m */; };
 		9B4501871AE797FF00AB5ABD /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4501861AE797FF00AB5ABD /* libcurl.dylib */; };
 		9B45018A1AE798A800AB5ABD /* VSGlobalMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4501891AE798A800AB5ABD /* VSGlobalMetadata.m */; };
+		9BA3FAD51AFA758200BF595C /* ProgressWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA3FAD41AFA758200BF595C /* ProgressWindowController.m */; };
 		9BB4C5A71AE515D400BB091C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4C5A61AE515D400BB091C /* AppDelegate.m */; };
 		9BB4C5A91AE515D400BB091C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4C5A81AE515D400BB091C /* main.m */; };
 		9BB4C5AB1AE515D400BB091C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BB4C5AA1AE515D400BB091C /* Images.xcassets */; };
@@ -47,6 +48,8 @@
 		9B4501861AE797FF00AB5ABD /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
 		9B4501881AE798A800AB5ABD /* VSGlobalMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSGlobalMetadata.h; sourceTree = "<group>"; };
 		9B4501891AE798A800AB5ABD /* VSGlobalMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSGlobalMetadata.m; sourceTree = "<group>"; };
+		9BA3FAD31AFA758200BF595C /* ProgressWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWindowController.h; sourceTree = "<group>"; };
+		9BA3FAD41AFA758200BF595C /* ProgressWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWindowController.m; sourceTree = "<group>"; };
 		9BB4C5A01AE515D400BB091C /* PlutoProjectCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlutoProjectCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB4C5A41AE515D400BB091C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BB4C5A51AE515D400BB091C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 		9B3936921AE51B1900DF4B9C /* MainUI */ = {
 			isa = PBXGroup;
 			children = (
+				9BA3FAD31AFA758200BF595C /* ProgressWindowController.h */,
+				9BA3FAD41AFA758200BF595C /* ProgressWindowController.m */,
 				9BE84B6A1AF112640010F069 /* SubgroupValueTransformer.h */,
 				9BE84B6B1AF112640010F069 /* SubgroupValueTransformer.m */,
 				9BF7414D1AE5163F009157CB /* BrowserDelegate.h */,
@@ -320,6 +325,7 @@
 				9B39368B1AE51B0200DF4B9C /* StageTwoController.m in Sources */,
 				9BE6E16A1AE53A2B00683918 /* VSSearch.m in Sources */,
 				9B45018A1AE798A800AB5ABD /* VSGlobalMetadata.m in Sources */,
+				9BA3FAD51AFA758200BF595C /* ProgressWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -62,6 +62,17 @@
     }
 }
 
+//return data structures corresponding to the _tags property
+- (NSArray *)tagsData
+{
+    NSMutableArray *rtn = [NSMutableArray array];
+    
+    for(NSString *name in _tags){
+        [rtn addObject:[_tagTokenDelegate tagDataForName:name]];
+    }
+    return rtn;
+}
+
 - (BOOL)validateForm:(NSError **)e
 {
     NSUInteger code=0;
@@ -79,8 +90,10 @@
         code = code|E_INVALID_BYLINE;
         errormsg = [errormsg stringByAppendingString:@"Byline must not be empty\n"];
     }
-    if(_tags==nil || [_tags isEqual:@""]){
+    /*if(_tags==nil || [_tags isEqual:@""]){*/
+    if(_tags==nil || [_tags count]==0){
         code = code|E_INVALID_TAGS;
+        //NSLog(@"%@",_tags);
         errormsg = [errormsg stringByAppendingString:@"Tags must not be empty\n"];
     }
  
