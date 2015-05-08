@@ -26,8 +26,11 @@
 - (void)updateProgress:(NSString *)msg stepNumber:(NSUInteger)step
 {
     _message = [NSString stringWithString:msg];
-    _currentStep = [NSNumber numberWithInteger:step];
-    
+    if(step<=0){
+        _currentStep = [NSNumber numberWithInteger:[_currentStep integerValue]];
+    } else {
+        _currentStep = [NSNumber numberWithInteger:step];
+    }
     [self setLabelText:[NSString stringWithFormat:@"(Step %@ of %@): %@",_currentStep,_totalSteps,_message]];
 }
 
@@ -43,6 +46,7 @@
 
 - (void)closeClicked:(id)sender
 {
+    [self clearFinished];
     [NSApp endSheet:[self window]];
     [[self window] orderOut:sender];
 }

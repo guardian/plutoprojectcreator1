@@ -44,6 +44,7 @@
 
 - (id)init:(NSString *)hostname port:(NSString *)port username:(NSString *)username password:(NSString *)passwd;
 - (NSXMLDocument *)makeRequest:(VSRequest *)req;
+- (NSXMLDocument *)makeRequestFull:(VSRequest *)req returnCode:(NSUInteger *)returnCode error:(NSError **)error;
 - (void)makeSAXRequest:(VSRequest *)req parseDelegate:(id)saxDelegate;
 - (NSError *)lastError;
 

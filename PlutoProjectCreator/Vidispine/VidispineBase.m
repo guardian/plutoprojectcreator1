@@ -218,8 +218,13 @@ size_t upload_read_callback(char *ptr, size_t size, size_t nmemb, void *userdata
     [parser parse];
 }
 
-/*make a request and return parsed XML data from it, or NULL*/
 - (NSXMLDocument *)makeRequest:(VSRequest *)req
+{
+    return [self makeRequestFull:req returnCode:nil error:nil];
+}
+
+/*make a request and return parsed XML data from it, or NULL*/
+- (NSXMLDocument *)makeRequestFull:(VSRequest *)req returnCode:(NSUInteger *)returnCode error:(NSError **)error
 {
     if(!req){
         NSLog(@"ERROR: VisidpineBase::makeRequest - req cannot be nil");
@@ -250,6 +255,9 @@ size_t upload_read_callback(char *ptr, size_t size, size_t nmemb, void *userdata
     curl_easy_setopt(curl,CURLOPT_WRITEDATA,(__bridge void *)dataBuffer);
     
     if([[req method] caseInsensitiveCompare:@"PUT"]==0){
+        
+        if(debug) NSLog(@"using PUT request");
+        
         curl_easy_setopt(curl,CURLOPT_PUT,1L);
         struct curl_slist *requestHeaders = NULL;
         requestHeaders = curl_slist_append (requestHeaders,"Content-Type: application/xml");
@@ -261,7 +269,27 @@ size_t upload_read_callback(char *ptr, size_t size, size_t nmemb, void *userdata
         curl_easy_setopt(curl,CURLOPT_READFUNCTION,&upload_read_callback);
         //curl_easy_setopt(curl,CURLOPT_CUSTOMREQUEST,[[req method] cStringUsingEncoding:NSUTF8StringEncoding]);
         //curl_easy_setopt(curl,CURLOPT_POSTFIELDS,[req body]);
+    } else if([[req method] caseInsensitiveCompare:@"POST"]==0){
+        if(debug) NSLog(@"using POST request");
+        
+        curl_easy_setopt(curl,CURLOPT_POST,1L);
+        struct curl_slist *requestHeaders = NULL;
+        requestHeaders = curl_slist_append (requestHeaders,"Content-Type: application/xml;  charset=utf-8");
+        
+        curl_easy_setopt(curl,CURLOPT_HTTPHEADER,requestHeaders);
+        //curl_easy_setopt(curl,CURLOPT_UPLOAD,1L);
+        NSData *bodydata=[[req body] dataUsingEncoding:NSUTF8StringEncoding];
+        curl_easy_setopt(curl,CURLOPT_POSTFIELDS,[bodydata bytes]);
+        curl_easy_setopt(curl,CURLOPT_POSTFIELDSIZE, [bodydata length]);
+        
+        //curl_easy_setopt(curl,CURLOPT_READDATA,bodydata);
+        //curl_easy_setopt(curl,CURLOPT_READFUNCTION,&upload_read_callback);
+        //curl_easy_setopt(curl,CURLOPT_CUSTOMREQUEST,[[req method] cStringUsingEncoding:NSUTF8StringEncoding]);
+        //curl_easy_setopt(curl,CURLOPT_POSTFIELDS,[req body]);
+    } else {
+        if(debug) NSLog(@"using GET request");
     }
+    
     curl_easy_perform(curl);
     
     long responseCode = -1;
@@ -269,6 +297,8 @@ size_t upload_read_callback(char *ptr, size_t size, size_t nmemb, void *userdata
     CURLcode r = curl_easy_getinfo(curl,CURLINFO_RESPONSE_CODE,&responseCode);
     
     NSLog(@"response code from server: %lu",responseCode);
+    if(returnCode)
+        *returnCode = responseCode;
     
     NSError *parseError=nil;
     NSXMLDocument *doc = [[NSXMLDocument alloc] initWithData:dataBuffer options:NSXMLDocumentTidyXML error:&parseError];
@@ -282,6 +312,7 @@ size_t upload_read_callback(char *ptr, size_t size, size_t nmemb, void *userdata
     
     if(doc==NULL){
         self.lastError=parseError;
+        *error=parseError;
     }
     
     return doc;
