@@ -8,6 +8,18 @@
 
 #import "PlutoContainer.h"
 
+#ifndef __plutocontainer_h_
+#define __plutocontainer_h_
+
 @interface PlutoCommission : PlutoContainer
 
+@property (copy) NSString *commissionName;
+@property (copy) NSDictionary *workingGroupRef;
+@property (copy) NSString *commissionerName;
+@property (copy) NSString *client;
+@property (copy) NSDate *projectedCompletion;
+
++ (PlutoCommission *)commissionWithVSID:(NSString *)vsid;
+
 @end
+#endif

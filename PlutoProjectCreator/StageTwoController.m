@@ -21,8 +21,9 @@
 @end
 
 @implementation StageTwoController
-@synthesize workingGroup;
+/*@synthesize workingGroup;
 @synthesize commission;
+*/
 
 - (void)windowDidLoad
 {
@@ -33,19 +34,26 @@
 
 - (void)awakeFromNib
 {
-    [self setByline:NSFullUserName()];
+    [_plutoProject setByline:NSFullUserName()];
 }
 
 - (StageTwoController *) init
 {
     self=[super init];
     
+    NSUserDefaults *d = [NSUserDefaults standardUserDefaults];
+    
+    _plutoProject = [[PlutoProject alloc] init:[d valueForKey:@"vshost"]
+                                        port:[d valueForKey:@"vsport"]
+                                    username:[d valueForKey:@"vsuser"]
+                                    password:[d valueForKey:@"vspass"]
+                   ];
     /*[self addObserver:self forKeyPath:@"workingGroup" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:Nil];
     [self addObserver:self forKeyPath:@"commission" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:nil];*/
     [self addObserver:self forKeyPath:@"appDelegate" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:nil];
 
-    [self addObserver:self forKeyPath:@"selectedProjectType" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:nil];
-    [self addObserver:self forKeyPath:@"selectedProjectSubType" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:nil];
+    [_plutoProject addObserver:self forKeyPath:@"selectedProjectType" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:nil];
+    [_plutoProject addObserver:self forKeyPath:@"selectedProjectSubType" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:nil];
     return self;
 }
 
@@ -69,7 +77,7 @@
 {
     NSMutableArray *rtn = [NSMutableArray array];
     
-    for(NSString *name in _tags){
+    for(NSString *name in [[self plutoProject] tags]){
         [rtn addObject:[_tagTokenDelegate tagDataForName:name]];
     }
     return rtn;
@@ -80,26 +88,25 @@
     NSUInteger code=0;
     NSString *errormsg = [NSString string];
     
-    if(_headline==nil || [_headline isEqual:@""]){
+    if([[self plutoProject] headline]==nil || [[[self plutoProject] headline] isEqual:@""]){
         code = code|E_INVALID_HEADLINE;
         errormsg = [errormsg stringByAppendingString:@"Headline must not be empty\n"];
     }
-    if(_standfirst==nil || [_standfirst isEqual:@""]){
+    if([[self plutoProject] standfirst]==nil || [[[self plutoProject] standfirst] isEqual:@""]){
         code = code|E_INVALID_STANDFIRST;
         errormsg = [errormsg stringByAppendingString:@"Standfirst must not be empty\n"];
     }
-    if(_byline==nil || [_byline isEqual:@""]){
+    if([[self plutoProject] byline]==nil || [[[self plutoProject] byline] isEqual:@""]){
         code = code|E_INVALID_BYLINE;
         errormsg = [errormsg stringByAppendingString:@"Byline must not be empty\n"];
     }
-    /*if(_tags==nil || [_tags isEqual:@""]){*/
-    if(_tags==nil || [_tags count]==0){
+    if([[self plutoProject] tags]==nil || [[[self plutoProject] tags] count]==0){
         code = code|E_INVALID_TAGS;
-        //NSLog(@"%@",_tags);
         errormsg = [errormsg stringByAppendingString:@"Tags must not be empty\n"];
     }
  
     if(code!=0){
+        /* this goes back to directly program an alert sheet in the caller */
         NSDictionary *errorDict = [NSDictionary dictionaryWithObjectsAndKeys:errormsg, NSLocalizedRecoverySuggestionErrorKey, @"Please correct these problems",NSLocalizedDescriptionKey,
             nil];
         
@@ -135,7 +142,19 @@
     ProjectCreationWorker *worker = [[ProjectCreationWorker alloc] init];
     [worker setProgressWindowController:pw];
     [worker setFormDialog:self];
+    [worker setPlutoProject:[self plutoProject]];
+    
     [worker start];
+}
+
+- (void) setWorkingGroup:(NSDictionary *)wg
+{
+    [_plutoProject setWorkingGroup:wg];
+}
+
+- (void) setCommission:(NSDictionary *)comm
+{
+    [_plutoProject setCommissionInfo:comm];
 }
 
 - (void)progressDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo

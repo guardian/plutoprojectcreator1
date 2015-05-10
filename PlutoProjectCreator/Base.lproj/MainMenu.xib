@@ -445,7 +445,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="eRU-KU-xrj" name="value" keyPath="commission.name" id="zs2-PM-qFx"/>
+                            <binding destination="eRU-KU-xrj" name="value" keyPath="plutoProject.commissionInfo.name" id="vXT-ds-Otb"/>
                         </connections>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wW2-SU-Lo8">
@@ -493,7 +493,7 @@
                                     <string key="NSValueTransformerName">SubgroupValueTransformer</string>
                                 </dictionary>
                             </binding>
-                            <binding destination="eRU-KU-xrj" name="selectedObject" keyPath="selectedProjectType" previousBinding="qvw-3s-Mfl" id="4wE-ct-nap"/>
+                            <binding destination="eRU-KU-xrj" name="selectedObject" keyPath="plutoProject.selectedProjectType" previousBinding="qvw-3s-Mfl" id="Nlk-0z-pPH"/>
                         </connections>
                     </popUpButton>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p7v-Rk-jw0">
@@ -516,7 +516,7 @@
                                     <string key="NSValueTransformerName">SubgroupValueTransformer</string>
                                 </dictionary>
                             </binding>
-                            <binding destination="eRU-KU-xrj" name="selectedObject" keyPath="selectedProjectSubType" previousBinding="8dC-AW-dei" id="9Bg-Km-Re0"/>
+                            <binding destination="eRU-KU-xrj" name="selectedObject" keyPath="plutoProject.selectedProjectSubType" previousBinding="8dC-AW-dei" id="qDD-Ur-GW7"/>
                         </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="smG-Oc-Wjt">
@@ -526,17 +526,6 @@
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
-                    </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vdr-US-jOn">
-                        <rect key="frame" x="119" y="170" width="262" height="42"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Project Title" drawsBackground="YES" id="MXa-5y-Sw5">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <binding destination="eRU-KU-xrj" name="value" keyPath="headline" id="qQF-cI-2Je"/>
-                        </connections>
                     </textField>
                     <box autoresizesSubviews="NO" horizontalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="8H8-yr-idS">
                         <rect key="frame" x="395" y="49" width="5" height="232"/>
@@ -568,7 +557,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="eRU-KU-xrj" name="value" keyPath="byline" id="8Cc-9f-LhE"/>
+                            <binding destination="eRU-KU-xrj" name="value" keyPath="plutoProject.byline" id="Wjl-c1-wRv"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nzT-94-p8c">
@@ -587,7 +576,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="eRU-KU-xrj" name="value" keyPath="standfirst" id="Zm9-0i-lw3"/>
+                            <binding destination="eRU-KU-xrj" name="value" keyPath="plutoProject.standfirst" id="Iat-IU-0tm"/>
                         </connections>
                     </textField>
                     <tokenField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="haX-6G-MDp">
@@ -598,7 +587,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </tokenFieldCell>
                         <connections>
-                            <binding destination="eRU-KU-xrj" name="value" keyPath="tags" id="XTu-VU-VI4"/>
+                            <binding destination="eRU-KU-xrj" name="value" keyPath="plutoProject.tags" id="GiX-3g-0yS"/>
                             <outlet property="delegate" destination="sBE-zE-Yhe" id="hTU-71-H1S"/>
                         </connections>
                     </tokenField>
@@ -620,7 +609,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="eRU-KU-xrj" name="value" keyPath="workingGroup.gnm_subgroup_displayname" id="tnv-56-Hfb">
+                            <binding destination="eRU-KU-xrj" name="value" keyPath="plutoProject.workingGroup.gnm_subgroup_displayname" id="C6f-T4-H1x">
                                 <dictionary key="options">
                                     <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                                 </dictionary>
@@ -634,6 +623,24 @@
                             <color key="textColor" red="0.80335003396739135" green="0.0094704173124304063" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                    </textField>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h0b-JI-JrJ">
+                        <rect key="frame" x="401" y="90" width="61" height="18"/>
+                        <buttonCell key="cell" type="check" title="Check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="g1B-ux-gvQ">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vdr-US-jOn">
+                        <rect key="frame" x="119" y="170" width="262" height="42"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Project Title" drawsBackground="YES" id="MXa-5y-Sw5">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="eRU-KU-xrj" name="value" keyPath="plutoProject.headline" id="xAe-K8-wjA"/>
+                        </connections>
                     </textField>
                 </subviews>
             </view>

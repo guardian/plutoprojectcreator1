@@ -12,23 +12,29 @@
 #define __stage_two_controller
 #import "AppDelegate.h"
 #import "R2TagTokenDelegate.h"
+#import "PlutoProject.h"
 
 @interface StageTwoController : NSWindowController
 - (IBAction)nextClicked:(id)sender;
 - (IBAction)prevClicked:(id)sender;
 
-@property (nonatomic,retain) NSDictionary *workingGroup;
-@property (nonatomic,retain) NSDictionary *commission;
+/*@property (nonatomic,retain) NSDictionary *workingGroup;
+@property (nonatomic,retain) NSDictionary *commission;*/
 @property (nonatomic,retain) NSArray *projectTypes;
 @property (nonatomic,retain) NSArray *projectSubTypes;
-@property (nonatomic,retain) NSString *selectedProjectType;
+/*@property (nonatomic,retain) NSString *selectedProjectType;
 @property (nonatomic,retain) NSString *selectedProjectSubType;
 
 @property (nonatomic,retain) NSString *headline;
 @property (nonatomic,retain) NSString *byline;
 @property (nonatomic,retain) NSString *standfirst;
-@property (nonatomic,retain) NSArray *tags;
+@property (nonatomic,retain) NSArray *tags;*/
+@property (atomic,strong) PlutoProject *plutoProject;
+
 - (NSArray *)tagsData;
+
+- (void) setWorkingGroup:(NSDictionary *)wg;
+- (void) setCommission:(NSDictionary *)comm;
 
 @property (weak) IBOutlet AppDelegate *appDelegate;
 @property (weak) IBOutlet R2TagTokenDelegate *tagTokenDelegate;

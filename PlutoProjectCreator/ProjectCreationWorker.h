@@ -18,6 +18,8 @@
 @property (strong) ProgressWindowController *progressWindowController;
 @property (strong) VSGlobalMetadata *globalMetadata;
 @property (strong) VidispineBase *vidispineConnection;
+@property (strong) PlutoProject *plutoProject;
+
 @property (weak) StageTwoController *formDialog;
 
 -(void)main;

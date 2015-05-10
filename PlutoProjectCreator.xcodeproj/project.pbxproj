@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B30755B1AFF83290094DD61 /* PlutoProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B30755A1AFF83290094DD61 /* PlutoProject.m */; };
 		9B3936871AE51AF200DF4B9C /* StageOneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3936861AE51AF200DF4B9C /* StageOneController.m */; };
 		9B39368B1AE51B0200DF4B9C /* StageTwoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3936891AE51B0200DF4B9C /* StageTwoController.m */; };
 		9B3936901AE51B1200DF4B9C /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B39368E1AE51B1200DF4B9C /* PrefsController.m */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B3075591AFF83290094DD61 /* PlutoProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlutoProject.h; sourceTree = "<group>"; };
+		9B30755A1AFF83290094DD61 /* PlutoProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlutoProject.m; sourceTree = "<group>"; };
 		9B3936851AE51AF200DF4B9C /* StageOneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageOneController.h; sourceTree = "<group>"; };
 		9B3936861AE51AF200DF4B9C /* StageOneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageOneController.m; sourceTree = "<group>"; };
 		9B3936881AE51B0200DF4B9C /* StageTwoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageTwoController.h; sourceTree = "<group>"; };
@@ -233,6 +236,8 @@
 				9BD3D8B41AFCC00B005897EC /* PlutoContainer.m */,
 				9BD3D8B61AFCC020005897EC /* PlutoCommission.h */,
 				9BD3D8B71AFCC020005897EC /* PlutoCommission.m */,
+				9B3075591AFF83290094DD61 /* PlutoProject.h */,
+				9B30755A1AFF83290094DD61 /* PlutoProject.m */,
 			);
 			name = Pluto;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 				9BB4C5A91AE515D400BB091C /* main.m in Sources */,
 				9BE6E1681AE53A2B00683918 /* VidispineBase.m in Sources */,
 				9B3936871AE51AF200DF4B9C /* StageOneController.m in Sources */,
+				9B30755B1AFF83290094DD61 /* PlutoProject.m in Sources */,
 				9BF1CC431AF370B100DE1CCC /* R2TagTokenDelegate.m in Sources */,
 				9BE6E1691AE53A2B00683918 /* VSItem.m in Sources */,
 				9B3936901AE51B1200DF4B9C /* PrefsController.m in Sources */,

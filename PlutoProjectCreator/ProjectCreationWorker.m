@@ -29,12 +29,19 @@
 
 - (void)main
 {
-    [[self progressWindowController] setTotalSteps:[NSNumber numberWithInt:2]];
-    [[self progressWindowController] updateProgress:@"Dummy text, waiting 10 seconds" stepNumber:1];
+    NSError *err=nil;
     
-    [self testWithDummyData];
+    [[self progressWindowController] setTotalSteps:[NSNumber numberWithInt:3]];
+    [[self progressWindowController] updateProgress:@"Creating project entry in PLUTO..." stepNumber:1];
+    
+    [[self plutoProject] saveWithError:&err];
+    
+    [[self progressWindowController] updateProgress:@"Dummy text, waiting 10 seconds" stepNumber:2];
+    
+    //[self testWithDummyData];
+    
     sleep(10);
-    [[self progressWindowController] updateProgress:@"Completed wait!" stepNumber:2];
+    [[self progressWindowController] updateProgress:@"Completed wait!" stepNumber:3];
     [[self progressWindowController] setFinished];
 }
 @end
