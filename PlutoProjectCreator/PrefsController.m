@@ -8,6 +8,8 @@
 
 #import "PrefsController.h"
 
+// check https://github.com/samsoffes/sskeychain for keychain access
+
 @interface PrefsController ()
 
 @end

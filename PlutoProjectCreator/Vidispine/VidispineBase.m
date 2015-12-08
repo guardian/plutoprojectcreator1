@@ -274,16 +274,16 @@ size_t upload_read_callback(char *ptr, size_t size, size_t nmemb, void *userdata
         
         curl_easy_setopt(curl,CURLOPT_POST,1L);
         struct curl_slist *requestHeaders = NULL;
-        requestHeaders = curl_slist_append (requestHeaders,"Content-Type: application/xml;  charset=utf-8");
+        requestHeaders = curl_slist_append (requestHeaders,"Content-Type: application/xml");
         
         curl_easy_setopt(curl,CURLOPT_HTTPHEADER,requestHeaders);
         //curl_easy_setopt(curl,CURLOPT_UPLOAD,1L);
         NSData *bodydata=[[req body] dataUsingEncoding:NSUTF8StringEncoding];
-        curl_easy_setopt(curl,CURLOPT_POSTFIELDS,[bodydata bytes]);
-        curl_easy_setopt(curl,CURLOPT_POSTFIELDSIZE, [bodydata length]);
+        //curl_easy_setopt(curl,CURLOPT_POSTFIELDS,[bodydata bytes]);
+        //curl_easy_setopt(curl,CURLOPT_POSTFIELDSIZE, [bodydata length]);
         
-        //curl_easy_setopt(curl,CURLOPT_READDATA,bodydata);
-        //curl_easy_setopt(curl,CURLOPT_READFUNCTION,&upload_read_callback);
+        curl_easy_setopt(curl,CURLOPT_READDATA,bodydata);
+        curl_easy_setopt(curl,CURLOPT_READFUNCTION,&upload_read_callback);
         //curl_easy_setopt(curl,CURLOPT_CUSTOMREQUEST,[[req method] cStringUsingEncoding:NSUTF8StringEncoding]);
         //curl_easy_setopt(curl,CURLOPT_POSTFIELDS,[req body]);
     } else {
@@ -312,7 +312,7 @@ size_t upload_read_callback(char *ptr, size_t size, size_t nmemb, void *userdata
     
     if(doc==NULL){
         self.lastError=parseError;
-        *error=parseError;
+        if(error) *error=parseError;
     }
     
     return doc;

@@ -24,6 +24,8 @@
 - (void) recurseCreateDocument:(NSXMLElement *)parentElem meta:(NSDictionary *)meta parentStack:(NSMutableArray *)parentStack namespace:(NSString *)ns
 {
     NSXMLElement *e=nil,*name=nil,*val=nil;
+    const char *numericType;
+    
     for(NSString *key in meta){
         id value = [meta objectForKey:key];
         NSLog(@"Got type %@ for key %@",[value class],key);
@@ -31,6 +33,17 @@
             e = [[NSXMLElement alloc] initWithName:@"group" URI:ns];
             [e setAttributesWithDictionary:[NSDictionary dictionaryWithObjectsAndKeys:key,@"name",@"add",@"mode", nil]];
             [self recurseCreateDocument:e meta:value parentStack:nil namespace:ns];
+            [parentElem addChild:e];
+        }  else if([value isKindOfClass:[NSNumber class]]){
+            numericType = [value objCType];
+            NSLog(@"number got data type %s", numericType);
+            e = [[NSXMLElement alloc] initWithName:@"field" URI:ns];
+            name = [[NSXMLElement alloc] initWithName:@"name" URI:ns];
+            [name setStringValue:key];
+            [e addChild:name];
+            val = [[NSXMLElement alloc] initWithName:@"value" URI:ns];
+            [val setStringValue:[value stringValue]];
+            [e addChild:val];
             [parentElem addChild:e];
         } else if([value isKindOfClass:[NSString class]]){
             e = [[NSXMLElement alloc] initWithName:@"field" URI:ns];
@@ -77,12 +90,14 @@
     //NSMutableArray *parentStack = [NSMutableArray arrayWithObject:timespan];
     [self recurseCreateDocument:timespan meta:meta parentStack:nil namespace:ns];
     
+    NSLog(@"%@",[[NSString alloc] initWithData:[_metadataDoc XMLData] encoding:NSUTF8StringEncoding]);
+    
     //[self setDebug:TRUE];
     NSString *path = [NSString stringWithFormat:@"/%@", [self entityClass]];
     NSString *param=[NSString stringWithFormat:@"name=%@", title];
     VSRequest *req = [[VSRequest alloc] init:path queryPart:[NSArray arrayWithObjects:param, nil] matrixPart:nil];
     [req setMethod:@"POST"];
-    //[req setBody:documentData];
+    [req setBody:[[NSString alloc] initWithData:[_metadataDoc XMLData] encoding:NSUTF8StringEncoding]];
     
     NSUInteger returnCode=-1;
     NSXMLDocument *returnedXML = [self makeRequestFull:req returnCode:&returnCode error:nil];

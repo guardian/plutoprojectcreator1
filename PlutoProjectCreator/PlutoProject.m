@@ -9,7 +9,54 @@
 #import "PlutoProject.h"
 
 @implementation PlutoProject
+/*
+ @property (nonatomic,retain) NSString *headline;
+ @property (nonatomic,retain) NSString *byline;
+ @property (nonatomic,retain) NSString *standfirst;
+ @property (nonatomic,retain) NSString *trail;
+ @property (nonatomic,retain) NSString *linkText;
+ @property (nonatomic,retain) NSDate *publishDate;
+ @property (nonatomic,retain) NSDate *removeDate;
+ 
+ @property () bool ukonly;
+ @property () bool whollyOwned;
+ @property () bool deletable;
+ @property () bool explicitContent;
+ @property () bool deepArchive;
+ @property () bool sensitiveContent;
+ 
+ @property (nonatomic,retain) NSArray *tags;
+ 
+ @property (nonatomic,retain) NSDictionary *workingGroup;
+ @property (nonatomic,retain) NSDictionary *commissionInfo;
+ @property (nonatomic,retain) NSString *projectUserName;
 
+*/
+- (id)init:(NSString *)hostname port:(NSString *)port username:(NSString *)username password:(NSString *)passwd
+{
+    self = [super init:hostname port:port username:username password:passwd];
+    
+    [self setProjectUserName:@""];
+    [self setHeadline:@""];
+    [self setByline:@""];
+    [self setStandfirst:@""];
+    [self setTrail:@""];
+    [self setLinkText:@""];
+    [self setPublishDate:[NSDate dateWithTimeIntervalSinceNow:0]];
+    [self setRemoveDate:[NSDate dateWithTimeIntervalSince1970:0]];
+    [self setUkonly:false];
+    [self setWhollyOwned:false];
+    [self setDeletable:false];
+    [self setExplicitContent:false];
+    [self setDeepArchive:false];
+    [self setSensitiveContent:false];
+    [self setTags:[NSArray array]];
+    [self setWorkingGroup:[NSDictionary dictionary]];
+    [self setCommissionInfo:[NSDictionary dictionary]];
+    [self setUsername:NSUserName()];
+    
+    return self;
+}
 /*
 + (PlutoProject *)projectWithHeadline:(NSString *)head standfirst:(NSString *)stand byline:(NSString *)by trail:(NSString *)trail commission:(PlutoCommission *)comm
 {
@@ -170,14 +217,43 @@
 - (bool)saveWithError:(NSError **)err
 {
     /* relate our properties to Vidispine fieldnames for Pluto */
-    NSDictionary *metaDict = [NSDictionary dictionaryWithObjectsAndKeys:@"Project",@"gnm_type",
+    /*NSLog(@"working group set: %@",[self workingGroup]);
+    NSLog(@"project subtype set: %@",[self selectedProjectSubType]);
+    NSLog(@"project type set: %@",[self selectedProjectType]);
+    return false;
+    */
+    NSLog(@"%@", [self commissionInfo]);
+    
+NSDictionary *metaDict = [NSDictionary dictionaryWithObjectsAndKeys:@"Project",@"gnm_type",
                               [self headline],@"gnm_project_headline",
-                              [self headline],@"title",
-                              
+                              [[self selectedProjectSubType] valueForKey:@"uuid"],@"gnm_project_subtype",  //UUID!
+                              [self projectUserName],@"gnm_project_username", //NUMERIC ID!
+                              [[self workingGroup] valueForKey:@"uuid"],@"gnm_commission_workinggroup",  //UUID!
+                              [[self commissionInfo] valueForKey:@"name"],@"gnm_commission_title",
+                              [NSNumber numberWithBool:[self whollyOwned]],@"gnm_project_whollyowned",
+                              //,@"gnm_project_subscribing_groups",   //UNKNOWN!
+                              [[self selectedProjectType] valueForKey:@"uuid"],@"gnm_project_type",                 //UUID!
+                              [NSNumber numberWithBool:[self deepArchive]],@"gnm_storage_rule_deep_archive",
+                              [NSNumber numberWithBool:[self ukonly]],@"gnm_project_ukonly",
+                              [self trail],@"gnm_project_trail",
+                              //,@"gnm_project_indendeduploadplatforms",  //ARRAY!
+                              [self standfirst],@"gnm_project_standfirst",
+                              [NSNumber numberWithBool:[self deletable]],@"gnm_storage_rule_deletable",
+                              //,@"gnm_project_subscribers",
+                              [self linkText],@"gnm_project_linktext",
+                              @"New",@"gnm_project_status",
+                              [NSNumber numberWithBool:[self sensitiveContent]],@"gnm_storage_rule_sensitive",
+                              [self headline],@"gnm_project_headline",
+                              [NSNumber numberWithBool:[self explicitContent]],@"gnm_project_containsadultcontent",
                               nil];
     
+    NSLog(@"metadata dictionary: %@", metaDict);
     /*fire off the create request*/
-    return [self createWithMetadata:metaDict title:[self headline] error:err];
+    [self setDebug:true];
+    bool result = [self createWithMetadata:metaDict title:[self headline] error:err];
+    //bool result = true;
+    /* if created properly, add to parent commission */
+    return result;
 }
 
 

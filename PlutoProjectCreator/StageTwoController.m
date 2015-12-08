@@ -35,6 +35,7 @@
 - (void)awakeFromNib
 {
     [_plutoProject setByline:NSFullUserName()];
+    [_plutoProject setProjectUserName:NSUserName()];
 }
 
 - (StageTwoController *) init
@@ -51,7 +52,9 @@
     /*[self addObserver:self forKeyPath:@"workingGroup" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:Nil];
     [self addObserver:self forKeyPath:@"commission" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:nil];*/
     [self addObserver:self forKeyPath:@"appDelegate" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:nil];
-
+    [self addObserver:self forKeyPath:@"selectedProjectTypeIndex" options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"selectedProjectSubTypeIndex" options:NSKeyValueObservingOptionNew context:nil];
+    
     [_plutoProject addObserver:self forKeyPath:@"selectedProjectType" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:nil];
     [_plutoProject addObserver:self forKeyPath:@"selectedProjectSubType" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:nil];
     return self;
@@ -60,6 +63,7 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
                         change:(NSDictionary *)change context:(void *)context
 {
+    NSUInteger indexID;
     NSLog(@"observeValueForKeyPath: got change %@ for key %@",change,keyPath);
     if([keyPath isEqual:@"selectedProjectType"] || [keyPath isEqual:@"selectedProjectSubType"]){
         NSDictionary *newVal = [change objectForKey:@"new"];
@@ -69,6 +73,12 @@
         NSLog(@"%@",_projectTypes);
         _projectSubTypes = [[_appDelegate vsGlobalMetadata] groupContent:@"ProjectSubType"];
         NSLog(@"%@",_projectSubTypes);
+    } else if([keyPath isEqual:@"selectedProjectTypeIndex"]){
+        indexID = [[change valueForKey:@"new"] unsignedIntegerValue];
+        [[self plutoProject] setSelectedProjectType:[[self projectTypes] objectAtIndex:indexID]];
+    } else if([keyPath isEqual:@"selectedProjectSubTypeIndex"]){
+        indexID = [[change valueForKey:@"new"] unsignedIntegerValue];
+        [[self plutoProject] setSelectedProjectSubType:[[self projectSubTypes] objectAtIndex:indexID]];
     }
 }
 
@@ -102,7 +112,7 @@
     }
     if([[self plutoProject] tags]==nil || [[[self plutoProject] tags] count]==0){
         code = code|E_INVALID_TAGS;
-        errormsg = [errormsg stringByAppendingString:@"Tags must not be empty\n"];
+        errormsg = [errormsg stringByAppendingString:@"Tags must not be empty.  If you have put tags in, make sure you press ENTER once you've finished typing so that they get registered by the program.\n"];
     }
  
     if(code!=0){

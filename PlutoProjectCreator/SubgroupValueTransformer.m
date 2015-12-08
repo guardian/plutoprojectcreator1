@@ -12,7 +12,7 @@
 
 + (Class)transformedValueClass
 {
-    return [NSArray class];
+    return [NSString class];
 }
 
 +(BOOL) allowsReverseTransformation
@@ -20,19 +20,25 @@
     return NO;
 }
 
--(NSArray *)transformedValue:(NSArray *)value
+-(NSString *)transformedValue:(NSDictionary *)value
 {
+    NSString *val;
     /*NSLog(@"SubgroupValueTransformer::transformedValue()");
     NSLog(@"%@: %@",[value class],value);*/
     //abort();
-    NSMutableArray *rtn=[NSMutableArray array];
+    /*NSMutableArray *rtn=[NSMutableArray array];
     
     for (NSDictionary *type in value ){
         NSString *name = [type valueForKey:@"gnm_subgroup_displayname"];
         if(name!=nil) [rtn addObject:name];
     }
     //return [value valueForKey:@"gnm_projectsubtype_displayname"];
-    return rtn;
+    return rtn;*/
+    NSLog(@"subgroupVAlueTransformer: got %@",value);
+    val = [value valueForKey:@"gnm_subgroup_displayname"];
+    if(!val)
+        val = [value valueForKey:@"gnm_projectsubtype_projecttype"];
+    return val;
 }
 @end
 

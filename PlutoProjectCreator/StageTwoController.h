@@ -31,6 +31,9 @@
 @property (nonatomic,retain) NSArray *tags;*/
 @property (atomic,strong) PlutoProject *plutoProject;
 
+@property (nonatomic) NSUInteger selectedProjectTypeIndex;
+@property (nonatomic) NSUInteger selectedProjectSubTypeIndex;
+
 - (NSArray *)tagsData;
 
 - (void) setWorkingGroup:(NSDictionary *)wg;

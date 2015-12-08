@@ -30,11 +30,21 @@
 - (void)main
 {
     NSError *err=nil;
+    bool result=false;
     
     [[self progressWindowController] setTotalSteps:[NSNumber numberWithInt:3]];
     [[self progressWindowController] updateProgress:@"Creating project entry in PLUTO..." stepNumber:1];
     
-    [[self plutoProject] saveWithError:&err];
+    result = [[self plutoProject] saveWithError:&err];
+    if(!result){
+        if(err!=nil){
+            [[self progressWindowController] updateProgress:[err localizedDescription] stepNumber:3];
+        } else {
+            [[self progressWindowController] updateProgress:@"Project creation failed but no error given!" stepNumber:3];
+        }
+        [[self progressWindowController] setFinished];
+        return;
+    }
     
     [[self progressWindowController] updateProgress:@"Dummy text, waiting 10 seconds" stepNumber:2];
     

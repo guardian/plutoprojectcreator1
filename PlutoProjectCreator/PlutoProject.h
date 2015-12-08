@@ -20,13 +20,14 @@
 @property (copy) NSString *byline;
 @property (copy) NSString *trail;
 */
-@property (nonatomic,retain) NSString *selectedProjectType;
-@property (nonatomic,retain) NSString *selectedProjectSubType;
+@property (nonatomic,retain) NSDictionary *selectedProjectType;
+@property (nonatomic,retain) NSDictionary *selectedProjectSubType;
 
 @property (nonatomic,retain) NSString *headline;
 @property (nonatomic,retain) NSString *byline;
 @property (nonatomic,retain) NSString *standfirst;
 @property (nonatomic,retain) NSString *trail;
+@property (nonatomic,retain) NSString *linkText;
 @property (nonatomic,retain) NSDate *publishDate;
 @property (nonatomic,retain) NSDate *removeDate;
 
@@ -41,6 +42,7 @@
 
 @property (nonatomic,retain) NSDictionary *workingGroup;
 @property (nonatomic,retain) NSDictionary *commissionInfo;
+@property (nonatomic,retain) NSString *projectUserName;
 
 @property (strong) PlutoCommission *commissionRef;
 
@@ -49,8 +51,10 @@
 + (PlutoProject *)projectForCommission:(PlutoCommission *)comm;
 */
 
+- (id)init:(NSString *)hostname port:(NSString *)port username:(NSString *)username password:(NSString *)passwd;
+
 - (bool)saveWithError:(NSError **)err;
-- (bool) saveToServer:(NSString *)host port:(NSUInteger)port user:(NSString *)user password:(NSString *)pass;
+- (bool)saveToServer:(NSString *)host port:(NSUInteger)port user:(NSString *)user password:(NSString *)pass;
 
 @end
 
